@@ -1,0 +1,341 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Spice Lux luxury responsive marketing website (React + TS + Tailwind) with WhatsApp enquiry + contact form persistence",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement the full responsive Spice Lux marketing site UI with the required pages/sections and exact hero headline + CTAs.",
+      "acceptanceCriteria": [
+        "Site renders all specified sections with the exact headline and CTA labels provided.",
+        "Navigation allows users to access each section/page on desktop and mobile.",
+        "Layout is mobile-first and remains usable at common breakpoints (mobile/tablet/desktop)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page layout that composes the required sections (Home, About, Products, Why Choose, Testimonials, Contact) with proper section IDs for navigation and mobile-first responsive layout."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Add a reusable layout wrapper (header/main/footer structure) to keep the UI organized and consistent across sections."
+        },
+        {
+          "path": "frontend/src/components/sections/HomeSection.tsx",
+          "operation": "create",
+          "description": "Implement Home hero with exact headline “Spice Lux – Luxury You Can Taste”, CTAs (Order Now / Bulk Enquiry / Contact Us), and 3 feature callouts (Export Quality | Handpicked | Hygienically Packed)."
+        },
+        {
+          "path": "frontend/src/components/sections/AboutSection.tsx",
+          "operation": "create",
+          "description": "Implement About Spice Lux section with luxury brand content structure and semantic headings."
+        },
+        {
+          "path": "frontend/src/components/sections/ProductsSection.tsx",
+          "operation": "create",
+          "description": "Implement Products section container with two product cards area and section heading."
+        },
+        {
+          "path": "frontend/src/components/sections/WhyChooseSection.tsx",
+          "operation": "create",
+          "description": "Implement Why Choose Spice Lux section with concise bullet/value props styling suitable for premium marketing content."
+        },
+        {
+          "path": "frontend/src/components/sections/TestimonialsSection.tsx",
+          "operation": "create",
+          "description": "Implement Testimonials section with a responsive layout and accessible typography."
+        },
+        {
+          "path": "frontend/src/components/sections/ContactSection.tsx",
+          "operation": "create",
+          "description": "Implement Contact section shell that will include form, contact links, WhatsApp CTA, and map embed (form wiring covered in REQ-6/REQ-7)."
+        },
+        {
+          "path": "frontend/src/components/shared/Section.tsx",
+          "operation": "create",
+          "description": "Create a small shared Section wrapper component to standardize spacing, max-width, and heading alignment across sections."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Apply a cohesive luxury theme across the site using the provided palette via Tailwind tokens and consistent component styling.",
+      "acceptanceCriteria": [
+        "Primary/secondary/background/accent colors reflect the provided palette across the whole site.",
+        "Buttons, cards, and headings have a cohesive luxury look (high contrast, refined typography, consistent spacing)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global CSS variables and base styles for the luxury palette (deep red, matte black, gold highlights, natural green accents) and typography; ensure Tailwind base layers are set up."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with brand-friendly tokens (colors/shadows/typography) mapped to CSS variables to enforce consistent luxury styling across sections."
+        },
+        {
+          "path": "frontend/src/components/shared/BrandButton.tsx",
+          "operation": "create",
+          "description": "Create a small wrapper around existing button primitives to standardize variants (primary/gold accent/outline) and spacing for a premium look. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/shared/BrandCard.tsx",
+          "operation": "create",
+          "description": "Create a shared card wrapper to standardize matte-black backgrounds, gold borders/highlights, and refined hover states. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add a sticky navbar with section links and an accessible responsive mobile menu.",
+      "acceptanceCriteria": [
+        "Navbar remains visible while scrolling on desktop and mobile.",
+        "Mobile menu is accessible and can be opened/closed; links scroll/navigate to the correct section."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/Navbar.tsx",
+          "operation": "create",
+          "description": "Implement a sticky navbar with links to Home/About/Products/Why Choose/Testimonials/Contact and an accessible mobile menu (e.g., using a drawer/sheet pattern). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/shared/SkipToContent.tsx",
+          "operation": "create",
+          "description": "Add a skip-to-content link for accessibility and improved landmark navigation on a single-page layout."
+        },
+        {
+          "path": "frontend/src/utils/scrollToSection.ts",
+          "operation": "create",
+          "description": "Add a small helper to smoothly scroll to section IDs (and close the mobile menu on navigation) while keeping behavior consistent across browsers."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Wire Navbar + SkipToContent into the layout header and ensure main has an ID/landmark target for skip navigation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure each required section has the correct anchor ID and is reachable via navbar link interactions on desktop and mobile."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build the Products section with two product cards (Cardamom and Black Pepper) with images, descriptions, grades/weights, hover effects, and Enquire Now buttons.",
+      "acceptanceCriteria": [
+        "Both products are displayed with images, descriptions, grades/weights, and a visible “Enquire Now” CTA.",
+        "Hover/focus states are implemented and accessible (keyboard focus styles present)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/products/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable ProductCard component that renders product image, name, provided suggested description, grades/weights list, and an “Enquire Now” button with elegant hover + visible focus styles."
+        },
+        {
+          "path": "frontend/src/components/sections/ProductsSection.tsx",
+          "operation": "modify",
+          "description": "Render exactly two ProductCard instances for Green Cardamom and Black Pepper and pass the correct image paths and product copy."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement WhatsApp deep-link CTAs with prefilled messages referencing Spice Lux and selected product when applicable.",
+      "acceptanceCriteria": [
+        "Order Now CTA opens a WhatsApp deep link in a new tab/window.",
+        "Product “Enquire Now” buttons open WhatsApp with a message that includes the product name."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/whatsapp.ts",
+          "operation": "create",
+          "description": "Add a utility to build WhatsApp deep links (with URL-encoded prefilled message including Spice Lux and optional product name) and open them in a new tab/window; include concise comments explaining message composition."
+        },
+        {
+          "path": "frontend/src/components/sections/HomeSection.tsx",
+          "operation": "modify",
+          "description": "Wire Home hero CTAs (Order Now / Bulk Enquiry / Contact Us) so Order Now and Bulk Enquiry open WhatsApp with prefilled messages; Contact Us scrolls/navigates to the Contact section."
+        },
+        {
+          "path": "frontend/src/components/products/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Wire each product “Enquire Now” button to WhatsApp with a message that includes the corresponding product name."
+        },
+        {
+          "path": "frontend/src/components/sections/ContactSection.tsx",
+          "operation": "modify",
+          "description": "Add a WhatsApp “Order Now” button in Contact that opens WhatsApp with a general Spice Lux enquiry message."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create the Contact section with contact form, visible/clickable phone+email, WhatsApp CTA, and Google Maps embed.",
+      "acceptanceCriteria": [
+        "Contact form includes basic fields (name, email/phone, message) with client-side validation and a clear success/error state.",
+        "Phone number and email are visible and clickable (tel: and mailto: links).",
+        "Google Maps embed renders in the Contact section/page."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/contact/ContactForm.tsx",
+          "operation": "create",
+          "description": "Implement a contact form with fields (name, email/phone, message), client-side validation, and clear success/error UI states; keep it accessible with proper labels and error messaging."
+        },
+        {
+          "path": "frontend/src/components/sections/ContactSection.tsx",
+          "operation": "modify",
+          "description": "Compose ContactForm, add visible/clickable tel: and mailto: links, include WhatsApp button, and add a Google Maps embed iframe with a sensible placeholder location URL and accessible title."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Persist Contact form submissions by calling the existing Motoko canister message-saving capability and provide a dev-only way to query saved submissions for verification.",
+      "acceptanceCriteria": [
+        "Submitting the form calls the backend and stores the submission (name, contact, message, timestamp).",
+        "Backend exposes a query method that returns saved submissions for verification.",
+        "Frontend displays a user-friendly confirmation after a successful submission and an error message on failure."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useContactSubmissions.ts",
+          "operation": "create",
+          "description": "Create React Query hooks to submit a contact message and (for development/testing) fetch saved messages using the existing backend interface exposed via the actor."
+        },
+        {
+          "path": "frontend/src/components/contact/ContactForm.tsx",
+          "operation": "modify",
+          "description": "Wire form submission to the submit hook; on success show confirmation and reset fields; on failure show a clear error state; add concise comments around the submission flow."
+        },
+        {
+          "path": "frontend/src/components/contact/DevSubmissionsPanel.tsx",
+          "operation": "create",
+          "description": "Add a lightweight dev-only panel (hidden by default, enabled via a simple URL flag) that queries and displays saved submissions for verification during development/testing."
+        },
+        {
+          "path": "frontend/src/components/sections/ContactSection.tsx",
+          "operation": "modify",
+          "description": "Conditionally render DevSubmissionsPanel only when the dev flag is present so the public marketing experience remains clean."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add subtle animations and SEO/accessibility structure (semantic headings, meta tags, landmarks) while keeping performance fast.",
+      "acceptanceCriteria": [
+        "Animations are subtle (e.g., fade/slide-in) and do not block interaction or degrade performance.",
+        "Pages/sections use semantic structure (H1/H2 hierarchy) and include appropriate meta tags.",
+        "Lighthouse-style checks show no obvious SEO/accessibility anti-patterns (e.g., missing alt text)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Add meta description (and any other lightweight, static SEO tags) for Spice Lux while preserving the existing title and viewport meta."
+        },
+        {
+          "path": "frontend/src/hooks/useRevealOnScroll.ts",
+          "operation": "create",
+          "description": "Implement a lightweight IntersectionObserver hook to apply subtle reveal animations as sections/cards enter the viewport (no heavy animation libraries)."
+        },
+        {
+          "path": "frontend/src/components/shared/Reveal.tsx",
+          "operation": "create",
+          "description": "Create a small wrapper that uses the reveal hook to apply fade/slide-in classes; ensure it is non-blocking and respects reduced-motion preferences."
+        },
+        {
+          "path": "frontend/src/components/sections/HomeSection.tsx",
+          "operation": "modify",
+          "description": "Ensure semantic heading structure (single H1 in hero; subsequent sections use H2) and add subtle, performant animations via the Reveal wrapper; ensure all images include meaningful alt text."
+        },
+        {
+          "path": "frontend/src/components/sections/ProductsSection.tsx",
+          "operation": "modify",
+          "description": "Apply subtle reveal/hover animations and ensure focus/keyboard accessibility remains intact."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Maintain a clean, production-ready frontend structure with readable code and concise comments around non-obvious logic.",
+      "acceptanceCriteria": [
+        "Key modules/components are separated logically (layout, sections, shared components).",
+        "Non-obvious logic includes short explanatory comments."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/sections/index.ts",
+          "operation": "create",
+          "description": "Create a barrel export for section components to keep imports clean and maintain a readable project structure."
+        },
+        {
+          "path": "frontend/src/utils/whatsapp.ts",
+          "operation": "modify",
+          "description": "Add concise comments documenting WhatsApp deep-link formatting decisions and where to update the phone number/message template."
+        },
+        {
+          "path": "frontend/src/hooks/useContactSubmissions.ts",
+          "operation": "modify",
+          "description": "Add concise comments documenting how React Query interacts with the actor and how dev verification querying is enabled."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add and wire generated static images for the hero and products (plus feature icons) from frontend/public/assets/generated into the UI.",
+      "acceptanceCriteria": [
+        "Generated images exist at frontend/public/assets/generated and are referenced directly by the frontend.",
+        "Hero uses the hero image; each product card uses its corresponding product image with descriptive alt text."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/spice-lux-hero.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated hero image asset as a static frontend file (do not serve from backend)."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-cardamom.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the generated green cardamom product image asset as a static frontend file (do not serve from backend)."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-black-pepper.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the generated black pepper product image asset as a static frontend file (do not serve from backend)."
+        },
+        {
+          "path": "frontend/public/assets/generated/icon-export-quality.dim_128x128.png",
+          "operation": "create",
+          "description": "Add the generated Export Quality icon as a static frontend file for the Home feature callout."
+        },
+        {
+          "path": "frontend/public/assets/generated/icon-handpicked.dim_128x128.png",
+          "operation": "create",
+          "description": "Add the generated Handpicked icon as a static frontend file for the Home feature callout."
+        },
+        {
+          "path": "frontend/public/assets/generated/icon-hygienically-packed.dim_128x128.png",
+          "operation": "create",
+          "description": "Add the generated Hygienically Packed icon as a static frontend file for the Home feature callout."
+        },
+        {
+          "path": "frontend/src/components/sections/HomeSection.tsx",
+          "operation": "modify",
+          "description": "Render the hero image from frontend/public/assets/generated/spice-lux-hero.dim_1600x900.png and render the three feature icons from frontend/public/assets/generated/icon-export-quality.dim_128x128.png, frontend/public/assets/generated/icon-handpicked.dim_128x128.png, and frontend/public/assets/generated/icon-hygienically-packed.dim_128x128.png with descriptive alt text."
+        },
+        {
+          "path": "frontend/src/components/sections/ProductsSection.tsx",
+          "operation": "modify",
+          "description": "Pass the correct static image paths to the two product cards: frontend/public/assets/generated/product-cardamom.dim_800x600.png and frontend/public/assets/generated/product-black-pepper.dim_800x600.png, ensuring descriptive alt text."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-the-spice-lux-responsive-marketing-website-ui-in-react-typescript-with-tailwind-styling-implementing-the-requested-sections-pages-home-hero-with-headline-spice-lux-luxury-you-can-taste-ctas-order-now-bulk-enquiry-contact-us-and-3-feature-callouts-export-quality-handpicked-hygienically-packed-about-spice-lux-products-two-product-cards-why-choose-spice-lux-testimonials-and-contact",
+      "featureTitle": "Create the Spice Lux responsive marketing website UI in React + TypeScript with Tailwind styling, implementing the requested sections/pages: Home (hero with headline “Spice Lux – Luxury You Can Taste”, CTAs: Order Now / Bulk Enquiry / Contact Us, and 3 feature callouts: Export Quality | Handpicked | Hygienically Packed), About Spice Lux, Products (two product cards), Why Choose Spice Lux, Testimonials, and Contact.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/SiteLayout.tsx",
+        "frontend/src/components/sections/AboutSection.tsx",
+        "frontend/src/components/sections/ContactSection.tsx",
+        "frontend/src/components/sections/HomeSection.tsx",
+        "frontend/src/components/sections/ProductsSection.tsx",
+        "frontend/src/components/sections/TestimonialsSection.tsx",
+        "frontend/src/components/sections/WhyChooseSection.tsx",
+        "frontend/src/components/shared/Section.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-consistent-luxury-brand-visual-theme-using-the-provided-palette-deep-red-matte-black-gold-highlights-natural-green-accents-including-typography-spacing-and-component-styling-buttons-cards-navbar-suitable-for-a-premium-indian-spices-brand",
+      "featureTitle": "Apply a consistent luxury brand visual theme using the provided palette (deep red, matte black, gold highlights, natural green accents), including typography, spacing, and component styling (buttons, cards, navbar) suitable for a premium Indian spices brand.",
+      "files": [
+        "frontend/src/components/shared/BrandButton.tsx",
+        "frontend/src/components/shared/BrandCard.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-sticky-navbar-with-clear-links-to-the-main-sections-home-about-products-why-choose-testimonials-contact-including-a-responsive-mobile-menu",
+      "featureTitle": "Implement a sticky navbar with clear links to the main sections (Home, About, Products, Why Choose, Testimonials, Contact), including a responsive mobile menu.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/Navbar.tsx",
+        "frontend/src/components/layout/SiteLayout.tsx",
+        "frontend/src/components/shared/SkipToContent.tsx",
+        "frontend/src/utils/scrollToSection.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-products-section-page-with-two-product-cards-green-cardamom-and-black-pepper-featuring-elegant-hover-effects-and-including-image-short-description-use-the-provided-suggested-descriptions-available-grades-weights-and-an-enquire-now-button-for-each-product",
+      "featureTitle": "Build the Products section/page with two product cards (Green Cardamom and Black Pepper) featuring elegant hover effects and including: image, short description (use the provided suggested descriptions), available grades/weights, and an “Enquire Now” button for each product.",
+      "files": [
+        "frontend/src/components/products/ProductCard.tsx",
+        "frontend/src/components/sections/ProductsSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-whatsapp-order-now-integration-clicking-the-order-now-enquiry-ctas-opens-whatsapp-with-a-prefilled-message-that-references-spice-lux-and-when-applicable-the-selected-product",
+      "featureTitle": "Implement WhatsApp “Order Now” integration: clicking the Order Now / enquiry CTAs opens WhatsApp with a prefilled message that references Spice Lux and (when applicable) the selected product.",
+      "files": [
+        "frontend/src/components/products/ProductCard.tsx",
+        "frontend/src/components/sections/ContactSection.tsx",
+        "frontend/src/components/sections/HomeSection.tsx",
+        "frontend/src/utils/whatsapp.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-the-contact-section-page-including-a-contact-form-displayed-phone-number-and-email-a-whatsapp-order-now-button-and-a-google-maps-location-embed",
+      "featureTitle": "Create the Contact section/page including a contact form, displayed phone number and email, a WhatsApp “Order Now” button, and a Google Maps location embed.",
+      "files": [
+        "frontend/src/components/contact/ContactForm.tsx",
+        "frontend/src/components/sections/ContactSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-persist-contact-form-submissions-to-the-motoko-canister-single-actor-backend-via-a-dedicated-submission-method-and-expose-a-query-method-to-verify-saved-submissions-during-development-testing",
+      "featureTitle": "Persist Contact form submissions to the Motoko canister (single-actor backend) via a dedicated submission method and expose a query method to verify saved submissions during development/testing.",
+      "files": [
+        "frontend/src/components/contact/ContactForm.tsx",
+        "frontend/src/components/contact/DevSubmissionsPanel.tsx",
+        "frontend/src/components/sections/ContactSection.tsx",
+        "frontend/src/hooks/useContactSubmissions.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-smooth-lightweight-animations-and-seo-friendly-structure-semantic-headings-meta-title-description-accessible-landmarks-while-keeping-the-site-fast-loading",
+      "featureTitle": "Add smooth, lightweight animations and SEO-friendly structure (semantic headings, meta title/description, accessible landmarks) while keeping the site fast-loading.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/components/sections/HomeSection.tsx",
+        "frontend/src/components/sections/ProductsSection.tsx",
+        "frontend/src/components/shared/Reveal.tsx",
+        "frontend/src/hooks/useRevealOnScroll.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-organize-the-project-with-a-clean-folder-structure-and-production-ready-readable-code-with-concise-comments-where-helpful-especially-around-whatsapp-integration-and-form-submission-flow",
+      "featureTitle": "Organize the project with a clean folder structure and production-ready, readable code with concise comments where helpful (especially around WhatsApp integration and form submission flow).",
+      "files": [
+        "frontend/src/components/sections/index.ts",
+        "frontend/src/hooks/useContactSubmissions.ts",
+        "frontend/src/utils/whatsapp.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-generated-static-image-assets-for-the-hero-and-products-under-frontend-public-assets-generated-and-render-them-in-the-home-hero-and-products-cards-do-not-serve-images-from-the-backend",
+      "featureTitle": "Add generated static image assets for the hero and products under frontend/public/assets/generated and render them in the Home hero and Products cards (do not serve images from the backend).",
+      "files": [
+        "frontend/src/components/sections/HomeSection.tsx",
+        "frontend/src/components/sections/ProductsSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

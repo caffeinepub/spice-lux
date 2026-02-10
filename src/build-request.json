@@ -1,0 +1,236 @@
+{
+  "kind": "build_request",
+  "title": "Spice Lux luxury responsive marketing website (Home, About, Products, Testimonials, Contact) with WhatsApp enquiry",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create the Spice Lux responsive marketing website UI in React + TypeScript with Tailwind styling, implementing the requested sections/pages: Home (hero with headline “Spice Lux – Luxury You Can Taste”, CTAs: Order Now / Bulk Enquiry / Contact Us, and 3 feature callouts: Export Quality | Handpicked | Hygienically Packed), About Spice Lux, Products (two product cards), Why Choose Spice Lux, Testimonials, and Contact.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-3"
+        ],
+        "quotes": [
+          "Create a luxury, modern, responsive website for a premium spices brand named “Spice Lux”.",
+          "Pages & Sections\n\n1. Home Page ... 6. Contact Page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Site renders all specified sections with the exact headline and CTA labels provided.",
+        "Navigation allows users to access each section/page on desktop and mobile.",
+        "Layout is mobile-first and remains usable at common breakpoints (mobile/tablet/desktop)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Apply a consistent luxury brand visual theme using the provided palette (deep red, matte black, gold highlights, natural green accents), including typography, spacing, and component styling (buttons, cards, navbar) suitable for a premium Indian spices brand.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-3"
+        ],
+        "quotes": [
+          "Color theme:\n\nDeep red\n\nMatte black\n\nGold highlights\n\nNatural green accents"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Primary/secondary/background/accent colors reflect the provided palette across the whole site.",
+        "Buttons, cards, and headings have a cohesive luxury look (high contrast, refined typography, consistent spacing)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement a sticky navbar with clear links to the main sections (Home, About, Products, Why Choose, Testimonials, Contact), including a responsive mobile menu.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-3"
+        ],
+        "quotes": [
+          "Features\n\nFully responsive (mobile-first)\n\nSticky navbar"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navbar remains visible while scrolling on desktop and mobile.",
+        "Mobile menu is accessible and can be opened/closed; links scroll/navigate to the correct section."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build the Products section/page with two product cards (Green Cardamom and Black Pepper) featuring elegant hover effects and including: image, short description (use the provided suggested descriptions), available grades/weights, and an “Enquire Now” button for each product.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-3"
+        ],
+        "quotes": [
+          "3. Products Page\n\nProduct cards with elegant hover effects\n\nProducts:\n\nGreen Cardamom (Elaichi) – bold aroma, premium grade\n\nBlack Pepper (Peppercorns) – strong flavor, high piperine content\n\nEach product card should include:\n\nImage placeholder\n\nShort description\n\nAvailable grades / weights\n\n“Enquire Now” button",
+          "💎 Suggested Product Descriptions (You can use these too)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Both products are displayed with images, descriptions, grades/weights, and a visible “Enquire Now” CTA.",
+        "Hover/focus states are implemented and accessible (keyboard focus styles present)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement WhatsApp “Order Now” integration: clicking the Order Now / enquiry CTAs opens WhatsApp with a prefilled message that references Spice Lux and (when applicable) the selected product.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-3"
+        ],
+        "quotes": [
+          "WhatsApp “Order Now” button",
+          "Extras\n\nWhatsApp order integration"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Order Now CTA opens a WhatsApp deep link in a new tab/window.",
+        "Product “Enquire Now” buttons open WhatsApp with a message that includes the product name."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create the Contact section/page including a contact form, displayed phone number and email, a WhatsApp “Order Now” button, and a Google Maps location embed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-3"
+        ],
+        "quotes": [
+          "6. Contact Page\n\nContact form\n\nPhone number & email\n\nWhatsApp “Order Now” button\n\nGoogle Maps location embed"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact form includes basic fields (name, email/phone, message) with client-side validation and a clear success/error state.",
+        "Phone number and email are visible and clickable (tel: and mailto: links).",
+        "Google Maps embed renders in the Contact section/page."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Persist Contact form submissions to the Motoko canister (single-actor backend) via a dedicated submission method and expose a query method to verify saved submissions during development/testing.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-3"
+        ],
+        "quotes": [
+          "Contact form",
+          "Generate complete, professional website code."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Submitting the form calls the backend and stores the submission (name, contact, message, timestamp).",
+        "Backend exposes a query method that returns saved submissions for verification.",
+        "Frontend displays a user-friendly confirmation after a successful submission and an error message on failure."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add smooth, lightweight animations and SEO-friendly structure (semantic headings, meta title/description, accessible landmarks) while keeping the site fast-loading.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-3"
+        ],
+        "quotes": [
+          "Smooth animations",
+          "SEO-friendly structure",
+          "Fast loading"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Animations are subtle (e.g., fade/slide-in) and do not block interaction or degrade performance.",
+        "Pages/sections use semantic structure (H1/H2 hierarchy) and include appropriate meta tags.",
+        "Lighthouse-style checks show no obvious SEO/accessibility anti-patterns (e.g., missing alt text)."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Organize the project with a clean folder structure and production-ready, readable code with concise comments where helpful (especially around WhatsApp integration and form submission flow).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-3"
+        ],
+        "quotes": [
+          "Clean folder structure",
+          "Commented production-ready code"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Key modules/components are separated logically (layout, sections, shared components).",
+        "Non-obvious logic includes short explanatory comments."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Add generated static image assets for the hero and products under frontend/public/assets/generated and render them in the Home hero and Products cards (do not serve images from the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-3"
+        ],
+        "quotes": [
+          "Hero section with premium spice photography",
+          "Each product card should include:\n\nImage placeholder"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images exist at frontend/public/assets/generated and are referenced directly by the frontend.",
+        "Hero uses the hero image; each product card uses its corresponding product image with descriptive alt text."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for any user-facing text.",
+    "Frontend must remain within React + TypeScript + Tailwind + Shadcn + React Query constraints.",
+    "Do not modify files under frontend/src/components/ui or other immutablePaths listed in SYSTEM_CONTEXT; compose them instead.",
+    "Backend must remain a single Motoko actor in backend/main.mo; add migration.mo only if upgrading existing persisted state is required.",
+    "No third-party authentication providers; only Internet Identity is supported (do not add other auth).",
+    "No external databases or server-side email/SMS services; contact submissions should be stored on-canister if persistence is required."
+  ],
+  "nonGoals": [
+    "E-commerce checkout or payment processing.",
+    "Admin dashboard for managing products/testimonials/enquiries (beyond a simple backend query for verification).",
+    "Real-time chat or push notifications.",
+    "Integration with external CRM/email delivery services."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Premium spice hero photograph in a luxury editorial style with warm dramatic lighting (spice-lux-hero.dim_1600x900.png)",
+      "Close-up premium green cardamom pods product photograph on a dark matte background with gold accents (product-cardamom.dim_800x600.png)",
+      "Close-up premium black peppercorns product photograph on a dark matte background with gold accents (product-black-pepper.dim_800x600.png)",
+      "Minimal luxury line icon: export/shipping motif in gold on transparent background (icon-export-quality.dim_128x128.png)",
+      "Minimal luxury line icon: handpicked/leaf motif in gold on transparent background (icon-handpicked.dim_128x128.png)",
+      "Minimal luxury line icon: hygiene/sealed-pack motif in gold on transparent background (icon-hygienically-packed.dim_128x128.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Use English for user-facing text."
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

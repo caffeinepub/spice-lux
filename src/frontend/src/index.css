@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0rem;
+        
+        /* Luxury Spice Lux Color Palette - Light Mode */
+        --background: 0.98 0.01 40;  /* Cream background */
+        --foreground: 0.15 0.02 20;  /* Deep black text */
+        
+        --card: 0.98 0.01 40;
+        --card-foreground: 0.15 0.02 20;
+        
+        --popover: 0.98 0.01 40;
+        --popover-foreground: 0.15 0.02 20;
+        
+        --primary: 0.15 0.02 20;  /* Matte black */
+        --primary-foreground: 0.98 0.01 40;
+        
+        --secondary: 0.92 0.01 40;
+        --secondary-foreground: 0.15 0.02 20;
+        
+        --muted: 0.92 0.01 40;
+        --muted-foreground: 0.50 0.01 20;
+        
+        --accent: 0.92 0.01 40;
+        --accent-foreground: 0.15 0.02 20;
+        
+        --destructive: 0.55 0.20 25;  /* Deep red */
+        --destructive-foreground: 0.98 0.01 40;
+        
+        --border: 0.85 0.01 40;
+        --input: 0.85 0.01 40;
+        --ring: 0.70 0.15 60;  /* Gold ring */
+        
+        /* Custom Spice Lux Brand Colors */
+        --red: 0.35 0.18 25;  /* Deep red */
+        --gold: 0.70 0.15 60;  /* Gold highlights */
+        --black: 0.15 0.02 20;  /* Matte black */
+        --cream: 0.95 0.01 40;  /* Cream/off-white */
+        --green: 0.55 0.12 140;  /* Natural green accent */
+    }
+
+    .dark {
+        --background: 0.15 0.02 20;  /* Matte black background */
+        --foreground: 0.95 0.01 40;  /* Cream text */
+        
+        --card: 0.20 0.02 20;
+        --card-foreground: 0.95 0.01 40;
+        
+        --popover: 0.20 0.02 20;
+        --popover-foreground: 0.95 0.01 40;
+        
+        --primary: 0.70 0.15 60;  /* Gold primary in dark mode */
+        --primary-foreground: 0.15 0.02 20;
+        
+        --secondary: 0.25 0.02 20;
+        --secondary-foreground: 0.95 0.01 40;
+        
+        --muted: 0.25 0.02 20;
+        --muted-foreground: 0.65 0.01 40;
+        
+        --accent: 0.30 0.02 20;
+        --accent-foreground: 0.95 0.01 40;
+        
+        --destructive: 0.55 0.20 25;
+        --destructive-foreground: 0.15 0.02 20;
+        
+        --border: 1 0 0 / 10%;
+        --input: 1 0 0 / 15%;
+        --ring: 0.70 0.15 60;
+        
+        /* Custom colors remain the same */
+        --red: 0.45 0.20 25;
+        --gold: 0.75 0.18 60;
+        --black: 0.15 0.02 20;
+        --cream: 0.95 0.01 40;
+        --green: 0.60 0.14 140;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    
+    /* Custom utility classes for brand colors */
+    .text-red {
+        color: oklch(var(--red));
+    }
+    
+    .text-gold {
+        color: oklch(var(--gold));
+    }
+    
+    .text-black {
+        color: oklch(var(--black));
+    }
+    
+    .text-cream {
+        color: oklch(var(--cream));
+    }
+    
+    .text-green {
+        color: oklch(var(--green));
+    }
+    
+    .bg-red {
+        background-color: oklch(var(--red));
+    }
+    
+    .bg-gold {
+        background-color: oklch(var(--gold));
+    }
+    
+    .bg-black {
+        background-color: oklch(var(--black));
+    }
+    
+    .bg-cream {
+        background-color: oklch(var(--cream));
+    }
+    
+    .bg-green {
+        background-color: oklch(var(--green));
+    }
+    
+    .border-red {
+        border-color: oklch(var(--red));
+    }
+    
+    .border-gold {
+        border-color: oklch(var(--gold));
+    }
+    
+    .border-black {
+        border-color: oklch(var(--black));
+    }
+    
+    .border-cream {
+        border-color: oklch(var(--cream));
+    }
+    
+    .fill-red {
+        fill: oklch(var(--red));
+    }
+    
+    .fill-gold {
+        fill: oklch(var(--gold));
+    }
+}

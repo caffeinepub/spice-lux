@@ -1,0 +1,112 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T07:00:35.259Z",
+  "summary": "Frontend implements the main marketing sections (Home/About/Products/Why Choose/Testimonials/Contact), a sticky responsive navbar, luxury-themed shared components, reveal-on-scroll animations, WhatsApp CTA hooks, and a contact form with client-side validation and success/error UI. Backend adds message storage and admin-gated query endpoints, but does not clearly meet the contact-submission schema (timestamp) and introduces unrequested authorization/user-profile features. SEO meta tags and the presence of required generated static assets cannot be confirmed from the provided diff summary.",
+  "missing_requirements": [
+    {
+      "id": "REQ-6",
+      "requirement": "Contact form should accept \"email/phone\" with client-side validation (name, email/phone, message).",
+      "reason": "The form field is labeled \"Email / Phone\" but the validation enforces an email regex and will reject phone numbers.",
+      "evidence": [
+        "frontend/src/components/contact/ContactForm.tsx"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Persist contact form submissions with name, contact, message, and timestamp, and provide a query method to verify saved submissions.",
+      "reason": "Backend Message type contains only name/email/text and no timestamp; it also stores by caller-provided id rather than recording a timestamp. The required fields \"contact\" and \"timestamp\" are not present in the stored type.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "SEO-friendly structure including appropriate meta title/description.",
+      "reason": "No evidence of any meta tag/title/description implementation is shown in the diff summary (e.g., no index.html or head management changes included).",
+      "evidence": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/SiteLayout.tsx"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "Add generated static image assets under frontend/public/assets/generated and reference them in the hero and product cards.",
+      "reason": "Frontend references the required asset paths, but the diff summary does not show the actual image files being added (omitted files are not listed), so asset existence cannot be verified from provided evidence.",
+      "evidence": [
+        "frontend/src/components/sections/HomeSection.tsx",
+        "frontend/src/components/sections/ProductsSection.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Role/permission-based access control system with admin/user permissions and authorization mixins.",
+      "reason": "BuildRequest did not ask for access control/roles on the canister, only to store submissions and expose a query for verification. The diff adds AccessControl, MixinAuthorization, and permission checks (including admin-only gating).",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "User profile management endpoints (getCallerUserProfile/getUserProfile/saveCallerUserProfile).",
+      "reason": "No requirement mentions user profiles or profile persistence; this appears unrelated to the Spice Lux marketing site and contact submission storage.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Admin-only restriction for viewing all contact submissions via getAllMessages.",
+      "reason": "BuildRequest only required a query method to verify saved submissions during development/testing; it did not request restricting the verification query to admins (and it also explicitly disallowed adding other auth providers; no II flow is evidenced here).",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/components/contact/DevSubmissionsPanel.tsx"
+      ]
+    },
+    {
+      "description": "Footer attribution link to caffeine.ai.",
+      "reason": "Not requested in the BuildRequest and adds external promotional content to the site footer.",
+      "evidence": [
+        "frontend/src/components/layout/Footer.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.66,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/contact/ContactForm.tsx",
+    "frontend/src/components/contact/DevSubmissionsPanel.tsx",
+    "frontend/src/components/layout/Footer.tsx",
+    "frontend/src/components/layout/Navbar.tsx",
+    "frontend/src/components/layout/SiteLayout.tsx",
+    "frontend/src/components/products/ProductCard.tsx",
+    "frontend/src/components/sections/AboutSection.tsx",
+    "frontend/src/components/sections/ContactSection.tsx",
+    "frontend/src/components/sections/HomeSection.tsx",
+    "frontend/src/components/sections/ProductsSection.tsx",
+    "frontend/src/components/sections/TestimonialsSection.tsx",
+    "frontend/src/components/sections/WhyChooseSection.tsx",
+    "frontend/src/components/sections/index.ts",
+    "frontend/src/components/shared/BrandButton.tsx",
+    "frontend/src/components/shared/BrandCard.tsx",
+    "frontend/src/components/shared/Reveal.tsx",
+    "frontend/src/components/shared/Section.tsx",
+    "frontend/src/components/shared/SkipToContent.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useContactSubmissions.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/hooks/useRevealOnScroll.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/utils/scrollToSection.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/src/utils/whatsapp.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}
